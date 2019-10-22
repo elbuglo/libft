@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 18:09:21 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/11 18:15:27 by lulebugl         ###   ########.fr       */
+/*   Created: 2019/10/22 17:16:30 by lulebugl          #+#    #+#             */
+/*   Updated: 2019/10/22 17:16:34 by lulebugl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	unsigned char	*mem;
+	void *p;
 
-	if (!(mem = (unsigned char *)malloc(sizeof(size) * count)))
-		return (NULL);
-	ft_memset(mem, 0, count);
-	return ((void *)mem);
+	if ((p = malloc(count * size)))
+		ft_bzero(p, count * size);
+	return (p);
 }

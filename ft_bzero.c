@@ -5,22 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 18:34:55 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/16 19:31:45 by lulebugl         ###   ########.fr       */
+/*   Created: 2019/10/22 17:16:21 by lulebugl          #+#    #+#             */
+/*   Updated: 2019/10/22 17:16:25 by lulebugl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *str, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-	char	*cpy;
-
-	cpy = str;
-	while (n != 0)
-	{
-		*cpy = 0;
-		cpy++;
-		n--;
-	}
+	ft_memset(s, 0, n);
 }

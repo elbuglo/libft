@@ -5,17 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/05 16:25:57 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/11 16:30:06 by lulebugl         ###   ########.fr       */
+/*   Created: 2019/10/22 17:21:30 by lulebugl          #+#    #+#             */
+/*   Updated: 2019/10/22 17:21:33 by lulebugl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-int		ft_isalpha(int c)
+int	ft_isalpha(int c)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-		return (1);
-	else
-		return (0);
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 }

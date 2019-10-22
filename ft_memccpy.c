@@ -5,29 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 19:02:29 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/16 21:07:30 by lulebugl         ###   ########.fr       */
+/*   Created: 2019/10/22 17:22:06 by lulebugl          #+#    #+#             */
+/*   Updated: 2019/10/22 17:22:08 by lulebugl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *str1, const void *str2, int c, size_t n)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	size_t				i;
-	unsigned char		*dst;
-	const unsigned char	*src;
+	size_t			i;
+	unsigned char	*p_dst;
+	unsigned char	*p_src;
 
 	i = 0;
-	dst = str1;
-	src = str2;
-	while (i < n && (i == 0 || src[i - 1] != (unsigned char)c))
+	p_dst = (unsigned char *)dst;
+	p_src = (unsigned char *)src;
+	while (i < n)
 	{
-		dst[i] = src[i];
-		i++;
+		*(p_dst + i) = *(p_src + i);
+		if (*(p_src + i) == (unsigned char)c)
+			return (p_dst + i + 1);
+		i += 1;
 	}
-	if (i > 0 && src[i - 1] == (unsigned char)c)
-		return (dst + i);
-	else
-		return (NULL);
+	if (*(p_src + i) == (unsigned char)c)
+		return (p_src + i + 1);
+	return (NULL);
 }

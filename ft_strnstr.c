@@ -5,32 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 18:37:26 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/15 15:31:27 by lulebugl         ###   ########.fr       */
+/*   Created: 2019/10/22 17:23:26 by lulebugl          #+#    #+#             */
+/*   Updated: 2019/10/22 18:50:23 by lulebugl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *s2, size_t n)
+char	*ft_strnstr(const char *s1, const char *needle, size_t len)
 {
-	size_t	i;
+	size_t i;
+	size_t d_len;
 
-	if (!s1 || !s2)
-		return (NULL);
-	if (*s2 == '\0')
-		return ((char*)s1);
+	if (!(d_len = ft_strlen(needle)))
+		return (char *)s1;
 	i = 0;
-	while (*s1 && n)
+	while (*(s1 + i) && len - i >= d_len && i < len)
 	{
-		if (*s1 == s2[i])
-			i++;
-		else
-			i = 0;
-		if (s2[i] == '\0')
-			return ((char*)(s1 - i + 1));
-		s1++;
-		n--;
+		if (!ft_memcmp(s1 + i, needle, d_len))
+			return ((char *)s1 + i);
+		i += 1;
 	}
 	return (NULL);
 }

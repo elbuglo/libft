@@ -5,34 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/11 23:23:29 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/15 15:48:53 by lulebugl         ###   ########.fr       */
+/*   Created: 2019/10/22 17:22:50 by lulebugl          #+#    #+#             */
+/*   Updated: 2019/10/22 17:22:52 by lulebugl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcpy(char *dest, const char *src)
+char	*ft_strdup(const char *s1)
 {
-	int i;
+	size_t	len;
+	char	*dup;
 
-	i = -1;
-	if (!dest || !src)
+	len = ft_strlen(s1);
+	if ((dup = (char *)malloc(len + 1)) == NULL)
 		return (NULL);
-	while (src[++i])
-		dest[i] = src[i];
-	dest[i] = 0;
-	return (dest);
-}
-
-char	*ft_strdup(const char *src)
-{
-	char *dest;
-
-	if (!src)
-		return (NULL);
-	if (!(dest = (char *)malloc(sizeof(char) * (ft_strlen(src) + 1))))
-		return (NULL);
-	ft_strcpy(dest, src);
-	return (dest);
+	ft_strlcpy(dup, s1, len + 1);
+	return (dup);
 }

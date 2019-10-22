@@ -5,17 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 17:28:32 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/11 16:33:17 by lulebugl         ###   ########.fr       */
+/*   Created: 2019/10/22 17:21:44 by lulebugl          #+#    #+#             */
+/*   Updated: 2019/10/22 17:21:47 by lulebugl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int	ft_isdigit(int c)
 {
-	if ((c >= '0') && (c <= '9'))
-		return (1);
-	else
-		return (0);
+	return (!(c < '0' || c > '9'));
 }

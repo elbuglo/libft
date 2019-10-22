@@ -5,27 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 19:52:14 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/09 20:01:38 by lulebugl         ###   ########.fr       */
+/*   Created: 2019/10/22 17:22:12 by lulebugl          #+#    #+#             */
+/*   Updated: 2019/10/22 17:22:14 by lulebugl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
-void	*ft_memchr(const void *str, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t		i;
-	char		*cpy;
+	size_t i;
 
-	if (str == NULL)
-		return (NULL);
 	i = 0;
-	cpy = (void*)str;
 	while (i < n)
 	{
-		if (cpy[i] == (char)c)
-			return (cpy + i);
-		i++;
+		if (*(unsigned char*)(s + i) == (unsigned char)c)
+			return ((char*)(s + i));
+		i += 1;
 	}
 	return (NULL);
 }

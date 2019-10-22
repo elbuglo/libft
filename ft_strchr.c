@@ -5,24 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 15:51:36 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/15 15:29:11 by lulebugl         ###   ########.fr       */
+/*   Created: 2019/10/22 17:22:44 by lulebugl          #+#    #+#             */
+/*   Updated: 2019/10/22 17:22:45 by lulebugl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
-char	*ft_strchr(const char *str, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	if (!str)
-		return (NULL);
-	while (*str)
+	int i;
+
+	i = 0;
+	while ((*(s + i)))
 	{
-		if (*str == (char)c)
-			return ((char*)str);
-		str++;
+		if (*(s + i) == (char)c)
+			return (char *)(s + i);
+		i += 1;
 	}
-	if (*str == (char)c)
-		return ((char*)str);
+	if (c == '\0')
+		return (char *)(s + i);
 	return (NULL);
 }

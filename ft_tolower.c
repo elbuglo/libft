@@ -5,17 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 15:48:43 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/11 16:07:35 by lulebugl         ###   ########.fr       */
+/*   Created: 2019/10/22 17:23:55 by lulebugl          #+#    #+#             */
+/*   Updated: 2019/10/22 17:23:58 by lulebugl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int	ft_tolower(int c)
 {
-	if (c >= 'A' && c <= 'Z')
-		return (c + 32);
-	else
-		return (c);
+	return (c < 'A' || c > 'Z') ? c : c + 32;
 }

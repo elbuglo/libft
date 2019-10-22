@@ -5,36 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 19:15:24 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/16 22:13:26 by lulebugl         ###   ########.fr       */
+/*   Created: 2019/10/22 17:22:32 by lulebugl          #+#    #+#             */
+/*   Updated: 2019/10/22 17:22:34 by lulebugl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *str1, const void *str2, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t		i;
+	size_t	i;
 
-	if (!str1 || !str2)
+	if (len && !dst && !src)
 		return (NULL);
-	if (str2 < str1)
-	{
-		i = n;
-		while (i > 0)
-		{
-			i--;
-			((char *)str1)[i] = ((char *)str2)[i];
-		}
-	}
+	if ((char *)dst < (char *)src)
+		ft_memcpy(dst, src, len);
 	else
 	{
 		i = 0;
-		while (i < n)
+		while (i < len)
 		{
-			((char *)str1)[i] = ((char *)str2)[i];
-			i++;
+			*((char *)(dst + len - (i + 1))) = *((char *)(src + len - (i + 1)));
+			i += 1;
 		}
 	}
-	return (str1);
+	return (dst);
 }

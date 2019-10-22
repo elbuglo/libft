@@ -5,23 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 18:20:14 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/16 19:31:03 by lulebugl         ###   ########.fr       */
+/*   Created: 2019/10/22 17:22:37 by lulebugl          #+#    #+#             */
+/*   Updated: 2019/10/22 17:22:39 by lulebugl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
-void	*ft_memset(void *str, int c, size_t len)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	char	*cpy;
+	size_t i;
 
-	cpy = str;
-	while (len != 0)
-	{
-		*cpy = c;
-		cpy++;
-		len--;
-	}
-	return (str);
+	i = 0;
+	while (i < len)
+		*(char *)(b + i++) = (unsigned char)c;
+	return (b);
 }

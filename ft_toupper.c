@@ -5,17 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 15:43:11 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/11 16:07:39 by lulebugl         ###   ########.fr       */
+/*   Created: 2019/10/22 17:24:02 by lulebugl          #+#    #+#             */
+/*   Updated: 2019/10/22 17:24:17 by lulebugl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int	ft_toupper(int c)
 {
-	if (c >= 'a' && c <= 'z')
-		return (c - 32);
-	else
-		return (c);
+	return (c < 'a' || c > 'z') ? c : c - 32;
 }

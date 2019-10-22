@@ -6,7 +6,7 @@
 #    By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/09 15:01:13 by lulebugl          #+#    #+#              #
-#    Updated: 2019/10/16 19:47:16 by lulebugl         ###   ########.fr        #
+#    Updated: 2019/10/22 18:28:06 by lulebugl         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRCS	= ft_strlen.c 			\
 			ft_isalnum.c		\
 			ft_isprint.c		\
 			ft_isascii.c		\
+			ft_isspace.c		\
 			ft_memset.c			\
 			ft_bzero.c			\
 			ft_memchr.c			\

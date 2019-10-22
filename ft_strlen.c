@@ -5,19 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/08 02:57:47 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/15 15:36:30 by lulebugl         ###   ########.fr       */
+/*   Created: 2019/10/22 17:23:09 by lulebugl          #+#    #+#             */
+/*   Updated: 2019/10/22 17:23:12 by lulebugl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <string.h>
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen(const char *s)
 {
-	size_t i;
+	size_t size;
 
-	i = 0;
-	while (str && str[i] != '\0')
-		i++;
-	return (i);
+	size = 0;
+	while (*(s + size))
+		size++;
+	return (size);
 }

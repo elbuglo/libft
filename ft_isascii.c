@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lulebugl <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/09 17:09:02 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/09 17:09:03 by lulebugl         ###   ########.fr       */
+/*   Created: 2019/10/22 17:21:38 by lulebugl          #+#    #+#             */
+/*   Updated: 2019/10/22 17:21:40 by lulebugl         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isascii(int c)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	else
-		return (0);
+	return (!(c < 0 || c > 127));
 }
