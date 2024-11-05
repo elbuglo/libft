@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: llebugle <lucas.lebugle@student.s19.be>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/22 17:24:02 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/22 17:24:17 by lulebugl         ###   ########.fr       */
+/*   Created: 2024/10/22 18:01:14 by llebugle          #+#    #+#             */
+/*   Updated: 2024/10/24 14:45:42 by llebugle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_toupper(int c)
 {
-	return (c < 'a' || c > 'z') ? c : c - 32;
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	return (c);
 }

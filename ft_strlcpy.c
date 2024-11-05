@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: llebugle <lucas.lebugle@student.s19.be>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/22 17:23:02 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/22 17:23:05 by lulebugl         ###   ########.fr       */
+/*   Created: 2024/10/23 13:42:56 by llebugle          #+#    #+#             */
+/*   Updated: 2024/10/24 14:41:33 by llebugle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t src_len;
-	size_t len;
+	size_t	src_len;
+	size_t	len;
 
 	src_len = ft_strlen(src);
 	if (!dstsize)
 		return (src_len);
-	len = (src_len < dstsize - 1) ? src_len : dstsize - 1;
+	if (src_len >= dstsize - 1)
+		len = dstsize - 1;
+	else
+		len = src_len;
 	ft_memcpy(dst, src, len);
 	*(dst + len) = '\0';
 	return (src_len);

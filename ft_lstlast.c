@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: llebugle <lucas.lebugle@student.s19.be>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/12 22:02:34 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/16 22:33:11 by lulebugl         ###   ########.fr       */
+/*   Created: 2024/10/25 14:19:43 by llebugle          #+#    #+#             */
+/*   Updated: 2024/10/25 14:28:13 by llebugle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,23 @@
 t_list	*ft_lstlast(t_list *lst)
 {
 	t_list	*last;
-	int		i;
-	int		limit;
 
-	i = 0;
 	last = lst;
-	limit = ft_lstsize(lst) - 1;
-	while (i < limit)
-	{
-		i++;
+	while (last && last->next)
 		last = last->next;
-	}
 	return (last);
 }
+
+// int main(int ac, char **av)
+// {
+// 	t_list *begin;
+// 	t_list *last;
+
+// 	begin = ft_lstnew((int*)9);
+// 	begin->next = ft_lstnew((int*)3);
+// 	begin->next->next = ft_lstnew((int*)5);
+// 	begin->next->next->next = ft_lstnew((int*)6);
+// 	last = ft_lstlast(begin);
+// 	printf("%d,", (int)last->content);
+// 	return (0);
+// }

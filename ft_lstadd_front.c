@@ -3,25 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: llebugle <lucas.lebugle@student.s19.be>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/12 21:46:05 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/16 23:26:20 by lulebugl         ###   ########.fr       */
+/*   Created: 2024/10/25 13:55:17 by llebugle          #+#    #+#             */
+/*   Updated: 2024/10/25 14:15:03 by llebugle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **alst, t_list *new)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (alst && *alst && new)
-	{
-		new->next = *alst;
-		*alst = new;
-	}
-	if (alst && !*alst && new)
-	{
-		new->next = NULL;
-		*alst = new;
-	}
+	t_list	*tmp;
+
+	tmp = *lst;
+	*lst = new;
+	new->next = tmp;
 }
+
+// int main(int ac, char **av)
+// {
+// 	t_list *begin;
+
+// 	begin = ft_lstnew((int*)9);
+// 	begin->next = ft_lstnew((int*)3); 
+// 	begin->next->next = ft_lstnew((int*)5);
+// 	ft_lstadd_front(&begin, ft_lstnew((int*)1));
+// 	while (begin)
+// 	{
+// 		printf("%d,", (int)begin->content);
+// 		begin = begin->next;
+// 	}
+// 	return (0);
+// }

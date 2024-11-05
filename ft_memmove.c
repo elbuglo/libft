@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: llebugle <lucas.lebugle@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/22 17:22:32 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/22 17:22:34 by lulebugl         ###   ########.fr       */
+/*   Created: 2024/10/22 17:53:40 by llebugle          #+#    #+#             */
+/*   Updated: 2024/10/26 14:28:48 by llebugle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,23 @@
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	size_t	i;
+	char	*ptr_dst;
+	char	*ptr_src;
 
-	if (len && !dst && !src)
+	ptr_dst = (char *)dst;
+	ptr_src = (char *)src;
+	if (!dst && !src)
 		return (NULL);
-	if ((char *)dst < (char *)src)
-		ft_memcpy(dst, src, len);
+	if (ptr_dst < ptr_src)
+	{
+		i = -1;
+		while (++i < len)
+			ptr_dst[i] = ptr_src[i];
+	}
 	else
 	{
-		i = 0;
-		while (i < len)
-		{
-			*((char *)(dst + len - (i + 1))) = *((char *)(src + len - (i + 1)));
-			i += 1;
-		}
+		while (len--)
+			ptr_dst[len] = ptr_src[len];
 	}
 	return (dst);
 }

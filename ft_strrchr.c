@@ -3,31 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: llebugle <lucas.lebugle@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/22 17:23:32 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/22 17:23:34 by lulebugl         ###   ########.fr       */
+/*   Created: 2024/10/23 17:42:46 by llebugle          #+#    #+#             */
+/*   Updated: 2024/10/26 14:19:15 by llebugle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int i;
-	int last_occurence;
+	char	*last;
 
-	i = 0;
-	last_occurence = -1;
-	while ((*(s + i)))
+	last = NULL;
+	if ((char)c)
 	{
-		if (*(s + i) == c)
-			last_occurence = i;
-		i += 1;
+		while (*s)
+		{
+			if (*s == (char)c)
+				last = (char *)s;
+			s++;
+		}
 	}
-	if (last_occurence > -1)
-		return ((char *)(s + last_occurence));
-	if (c == '\0')
-		return ((char *)(s + i));
-	return (NULL);
+	else
+		last = ft_strchr(s, c);
+	return (last);
 }

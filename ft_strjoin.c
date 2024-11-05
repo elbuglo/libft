@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: llebugle <lucas.lebugle@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 18:50:26 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/16 19:03:33 by lulebugl         ###   ########.fr       */
+/*   Created: 2024/10/24 13:43:47 by llebugle          #+#    #+#             */
+/*   Updated: 2024/10/26 14:51:06 by llebugle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,16 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		i;
-	int		j;
-	char	*str;
+	char	*new;
+	size_t	len;
 
-	i = 0;
-	if (!s1 || !s2)
+	if (!s1 && !s2)
 		return (NULL);
-	if (!(str = malloc((sizeof(char)) * (ft_strlen(s1) + ft_strlen(s2) + 1))))
+	len = ft_strlen(s1) + ft_strlen(s2);
+	new = malloc(sizeof(char) * len + 1);
+	if (!new)
 		return (NULL);
-	while (s1[i] != 0)
-	{
-		str[i] = s1[i];
-		i++;
-	}
-	j = 0;
-	while (s2[j] != 0)
-	{
-		str[i] = s2[j];
-		i++;
-		j++;
-	}
-	str[i] = '\0';
-	return (str);
+	ft_strlcpy(new, s1, ft_strlen(s1) + 1);
+	ft_strlcat(new, s2, len + 1);
+	return (new);
 }

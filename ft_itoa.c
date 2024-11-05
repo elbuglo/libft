@@ -3,49 +3,52 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: llebugle <lucas.lebugle@student.s19.be>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 21:39:40 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/20 05:41:06 by lulebugl         ###   ########.fr       */
+/*   Created: 2024/10/24 18:52:15 by llebugle          #+#    #+#             */
+/*   Updated: 2024/10/24 21:19:58 by llebugle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned int	nb_len(unsigned int nb)
+static size_t	len_nb(long n)
 {
-	unsigned int	len;
+	size_t	len;
 
 	len = 0;
-	while (nb /= 10)
-		++len;
+	while (n / 10)
+	{
+		n /= 10;
+		len++;
+	}
 	return (len + 1);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-	char			*str;
-	unsigned int	nb;
-	unsigned int	i;
-	unsigned int	len;
+	char	*str;
+	long	nb;
+	size_t	len;
 
 	if (n < 0)
-		nb = (unsigned int)(n * -1);
+		nb = -(long)n;
 	else
 		nb = n;
-	len = nb_len(nb);
-	i = 0;
-	if (!(str = (char*)malloc(sizeof(char) * (len + 1 + (n < 0 ? 1 : 0)))))
-		return (NULL);
-	if (n < 0 && (str[i] = '-'))
+	len = len_nb(nb);
+	if (n < 0)
 		len++;
-	i = len - 1;
+	str = ft_calloc(len + 1, sizeof(char));
+	if (!str)
+		return (NULL);
+	if (n < 0)
+		str[0] = '-';
+	len--;
 	while (nb >= 10)
 	{
-		str[i--] = (char)(nb % 10 + 48);
+		str[len--] = nb % 10 + 48;
 		nb /= 10;
 	}
-	str[i] = (nb % 10 + 48);
-	str[len] = '\0';
+	str[len] = nb % 10 + 48;
 	return (str);
 }

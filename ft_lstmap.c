@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: llebugle <lucas.lebugle@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/13 00:20:26 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/20 02:43:06 by lulebugl         ###   ########.fr       */
+/*   Created: 2024/10/25 18:42:06 by llebugle          #+#    #+#             */
+/*   Updated: 2024/10/26 15:52:23 by llebugle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,23 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list		*tmp;
-	t_list		*head;
+	t_list	*new;
+	t_list	*head;
+	void	*content;
 
-	if (lst == NULL || f == NULL)
+	if (!lst || !f)
 		return (NULL);
-	if (!(head = ft_lstnew(f(lst->content))))
-		return (NULL);
-	lst = lst->next;
+	head = NULL;
 	while (lst)
 	{
-		if (!(tmp = ft_lstnew(f(lst->content))))
+		content = f(lst->content);
+		new = ft_lstnew(content);
+		if (!new)
 		{
-			ft_lstclear(&lst, del);
-			return (NULL);
+			del(content);
+			return (ft_lstclear(&head, del), NULL);
 		}
-		ft_lstadd_back(&head, tmp);
+		ft_lstadd_back(&head, new);
 		lst = lst->next;
 	}
 	return (head);

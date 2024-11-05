@@ -3,32 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: llebugle <lucas.lebugle@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/22 17:16:02 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/22 17:16:06 by lulebugl         ###   ########.fr       */
+/*   Created: 2024/10/23 13:07:21 by llebugle          #+#    #+#             */
+/*   Updated: 2024/10/26 13:46:26 by llebugle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
 int	ft_atoi(const char *str)
 {
-	int i;
-	int res;
-	int sign;
+	long	res;
+	int		sign;
+	int		i;
 
 	i = 0;
+	sign = 1;
 	res = 0;
-	while (ft_isspace(*(str + i)))
-		i += 1;
-	sign = (*(str + i) == '-') ? -1 : 1;
-	if (*(str + i) == '-' || *(str + i) == '+')
-		i += 1;
-	while (ft_isdigit(*(str + i)))
+	while (((str[i] >= 9 && str[i] <= 13) || str[i] == ' ') && str[i])
+		i++;
+	if (str[i] == '-')
 	{
-		res = (res * 10) + ((*(str + i) - '0') * sign);
-		i += 1;
+		sign *= -1;
+		i++;
 	}
-	return (res);
+	else if (str[i] == '+')
+		i++;
+	while (str[i] && str[i] >= '0' && str[i] <= '9')
+	{
+		res = res * 10 + str[i] - 48;
+		i++;
+	}
+	return (sign * (int)res);
 }

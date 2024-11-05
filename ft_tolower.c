@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: llebugle <lucas.lebugle@student.s19.be>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/22 17:23:55 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/22 17:23:58 by lulebugl         ###   ########.fr       */
+/*   Created: 2024/10/22 18:05:03 by llebugle          #+#    #+#             */
+/*   Updated: 2024/10/24 14:45:46 by llebugle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_tolower(int c)
 {
-	return (c < 'A' || c > 'Z') ? c : c + 32;
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return (c);
 }

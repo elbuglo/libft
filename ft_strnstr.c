@@ -3,28 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: llebugle <lucas.lebugle@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/22 17:23:26 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/22 18:50:23 by lulebugl         ###   ########.fr       */
+/*   Created: 2024/10/23 18:13:51 by llebugle          #+#    #+#             */
+/*   Updated: 2024/10/26 00:08:54 by llebugle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *s1, const char *needle, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t i;
-	size_t d_len;
+	size_t	i;
+	size_t	len_little;
 
-	if (!(d_len = ft_strlen(needle)))
-		return (char *)s1;
 	i = 0;
-	while (*(s1 + i) && len - i >= d_len && i < len)
+	if (*big == *little && *big == 0)
+		return ((char *)big);
+	if (*big == 0 && len == 0)
+		return (NULL);
+	len_little = ft_strlen(little);
+	if (len_little == 0)
+		return ((char *)big);
+	while (big[i] && len - i >= len_little && i < len)
 	{
-		if (!ft_memcmp(s1 + i, needle, d_len))
-			return ((char *)s1 + i);
-		i += 1;
+		if (!ft_memcmp(big + i, little, len_little))
+			return ((char *)big + i);
+		i++;
 	}
 	return (NULL);
 }

@@ -3,23 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: llebugle <lucas.lebugle@student.s19.be>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/22 17:22:50 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/22 17:22:52 by lulebugl         ###   ########.fr       */
+/*   Created: 2024/10/23 20:24:51 by llebugle          #+#    #+#             */
+/*   Updated: 2024/10/24 14:40:05 by llebugle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+char	*ft_strdup(const char *s)
 {
-	size_t	len;
-	char	*dup;
+	char	*str;
 
-	len = ft_strlen(s1);
-	if ((dup = (char *)malloc(len + 1)) == NULL)
+	str = malloc(ft_strlen(s) + 1 * sizeof(char));
+	if (!str)
 		return (NULL);
-	ft_strlcpy(dup, s1, len + 1);
-	return (dup);
+	ft_strlcpy(str, s, ft_strlen(s) + 1);
+	return (str);
 }

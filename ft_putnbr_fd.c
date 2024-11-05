@@ -3,30 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: llebugle <lucas.lebugle@student.s19.be>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/11 23:24:53 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/15 08:07:55 by lulebugl         ###   ########.fr       */
+/*   Created: 2024/10/25 13:27:48 by llebugle          #+#    #+#             */
+/*   Updated: 2024/11/05 11:53:43 by llebugle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+size_t	ft_putnbr_fd(int n, int fd)
 {
-	long	i;
+	long	nb;
+	size_t	len;
 
-	i = n;
-	if (i < 0)
+	nb = n;
+	len = 0;
+	if (n < 0)
 	{
-		ft_putchar_fd('-', fd);
-		i = i * (-1);
+		write(1, "-", 1);
+		len++;
+		nb = -nb;
 	}
-	if (i > 9)
+	if (nb > 9)
 	{
-		ft_putnbr_fd((i / 10), fd);
-		ft_putnbr_fd((i % 10), fd);
+		len += ft_putnbr_fd((nb / 10), fd);
+		len += ft_putnbr_fd((nb % 10), fd);
 	}
 	else
-		ft_putchar_fd((i + '0'), fd);
+	{
+		ft_putchar_fd(nb + 48, fd);
+		len++;
+	}
+	return (len);
 }

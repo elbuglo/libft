@@ -1,16 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isspace.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: llebugle <lucas.lebugle@student.s19.be>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/22 17:21:55 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/22 17:21:58 by lulebugl         ###   ########.fr       */
+/*   Created: 2024/10/25 12:57:39 by llebugle          #+#    #+#             */
+/*   Updated: 2024/10/25 13:05:35 by llebugle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isspace(int c)
+#include "libft.h"
+
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	return (c == 32 || !(c < '\t' || c > '\r'));
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+	{
+		(f)(i, s + i);
+		i++;
+	}
 }

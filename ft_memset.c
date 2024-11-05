@@ -3,21 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lulebugl <lulebugl@student.42.fr>          +#+  +:+       +#+        */
+/*   By: llebugle <lucas.lebugle@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/22 17:22:37 by lulebugl          #+#    #+#             */
-/*   Updated: 2019/10/22 17:22:39 by lulebugl         ###   ########.fr       */
+/*   Created: 2024/10/22 17:39:41 by llebugle          #+#    #+#             */
+/*   Updated: 2024/10/25 21:31:14 by llebugle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	*ft_memset(void *dst, int c, size_t count)
 {
-	size_t i;
+	size_t			i;
+	unsigned char	*d;
 
-	i = 0;
-	while (i < len)
-		*(char *)(b + i++) = (unsigned char)c;
-	return (b);
+	i = -1;
+	d = dst;
+	while (++i < count)
+		*d++ = c;
+	return (dst);
 }
