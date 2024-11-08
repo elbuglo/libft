@@ -6,13 +6,13 @@
 /*   By: llebugle <lucas.lebugle@student.s19.be>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 13:32:24 by llebugle          #+#    #+#             */
-/*   Updated: 2024/11/04 18:58:48 by llebugle         ###   ########.fr       */
+/*   Updated: 2024/11/08 18:57:44 by llebugle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	*ft_strjoin_gnl(char *s1, char const *s2)
+char	*ft_strjoin_n_free(char *s1, char const *s2)
 {
 	char	*new;
 	size_t	len;
@@ -79,7 +79,7 @@ static char	*read_and_append(int fd, char *current)
 			return (free(current), NULL);
 		}
 		buffer[ret] = '\0';
-		current = ft_strjoin_gnl(current, buffer);
+		current = ft_strjoin_n_free(current, buffer);
 		if (!current)
 			return (NULL);
 	}
