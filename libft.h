@@ -6,7 +6,7 @@
 /*   By: llebugle <lucas.lebugle@student.s19.be>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 17:55:01 by llebugle          #+#    #+#             */
-/*   Updated: 2024/11/05 11:55:36 by llebugle         ###   ########.fr       */
+/*   Updated: 2024/11/08 17:15:43 by llebugle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,6 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 char	*get_next_line(int fd);
 int		ft_printf(const char *format, ...);
+int		ft_printf_fd(int fd, const char *format, ...);
 
 #endif
