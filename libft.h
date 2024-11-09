@@ -6,7 +6,7 @@
 /*   By: llebugle <lucas.lebugle@student.s19.be>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 17:55:01 by llebugle          #+#    #+#             */
-/*   Updated: 2024/11/08 18:58:01 by llebugle         ###   ########.fr       */
+/*   Updated: 2024/11/09 15:20:43 by llebugle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,6 @@ char	*get_next_line(int fd);
 int		ft_printf(const char *format, ...);
 int		ft_printf_fd(int fd, const char *format, ...);
 char	*ft_strjoin_n_free(char *s1, char const *s2);
+int		ft_is_charset(char c, char *charset);
 
 #endif

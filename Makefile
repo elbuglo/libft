@@ -6,7 +6,7 @@
 #    By: llebugle <lucas.lebugle@student.s19.be>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/22 16:13:09 by llebugle          #+#    #+#              #
-#    Updated: 2024/11/08 19:22:45 by llebugle         ###   ########.fr        #
+#    Updated: 2024/11/09 15:21:05 by llebugle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,7 @@ SRCS	= 	ft_isalpha.c		\
 			get_next_line.c		\
 			ft_printf.c			\
 			ft_printf_fd.c		\
+			ft_is_charset.c		\
 
 OBJS	= $(SRCS:.c=.o)
 
