@@ -6,7 +6,7 @@
 #    By: llebugle <lucas.lebugle@student.s19.be>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/22 16:13:09 by llebugle          #+#    #+#              #
-#    Updated: 2024/11/09 15:21:05 by llebugle         ###   ########.fr        #
+#    Updated: 2024/11/09 18:57:03 by llebugle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,9 +67,9 @@ CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
 
 $(NAME) :	$(OBJS)
-	$(CC) $(CFLAGS) -c $(SRCS)
-	ar rc $(NAME) $(OBJS)
-	ranlib $(NAME)
+	@$(CC) $(CFLAGS) -c $(SRCS)
+	@ar rc $(NAME) $(OBJS)
+	@ranlib $(NAME)
 
 all : $(NAME)
 
